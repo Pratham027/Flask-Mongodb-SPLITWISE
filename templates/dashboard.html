@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+<body>
+  <div class="dashboard-header">
+  <h2>Welcome, {{ username }}</h2>
+  <button id="logout-btn" class="logout-btn">Logout</button>
+</div>
+    <div class="dashboard-container">
+        <!-- Total owed -->
+        <div class="total-owed">
+            <h3>You are owed</h3>
+            <h1>₹{{ total }}</h1>
+            <button class="settle-btn">Settle All</button>
+        </div>
+
+        <!-- Expense Groups -->
+        <div class="groups-section">
+            <h3>Groups</h3>
+            <div class="expense-group">
+                {% for exp in expenses %}
+                <div class="group-card" data-id="{{ exp._id }}">
+                    <div class="group-info">
+                        <h4>{{ exp.title }}</h4>
+                        <p>{{ exp.split_with | join(', ') }}</p>
+                    </div>
+                    <div class="amount-info">
+                        <p>₹{{ exp.each_share }}</p>
+                        <button class="edit-btn">Edit</button>
+                        <a href="{{ url_for('delete_expense', expense_id=exp._id) }}" class="delete-btn">Delete</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Add Expense Button -->
+        <button class="add-btn" onclick="document.getElementById('add-expense-form').style.display='block'">+</button>
+
+        <!-- Add Expense Form (hidden by default) -->
+        <div id="add-expense-form" class="modal">
+            <form class="modal-content" action="{{ url_for('add_expense') }}" method="POST">
+                <span class="close" onclick="document.getElementById('add-expense-form').style.display='none'">&times;</span>
+                <h3>Add Expense</h3>
+                <input type="text" name="title" placeholder="Title" required>
+                <input type="number" name="amount" placeholder="Amount" step="0.01" required>
+                <input type="text" name="split_with" placeholder="Split with (comma-separated)">
+                <button type="submit">Add Expense</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/css/script/dashboard.js"></script>
+</body>
+</html>

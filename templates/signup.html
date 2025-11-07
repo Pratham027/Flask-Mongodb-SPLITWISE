@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - Expense Sharing App</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/static/css/signup.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Create Your Account 👋</h2>
+    <p class="subtitle">Sign up to start managing your expenses</p>
+
+    <form method="POST">
+      <!-- Username -->
+      <input type="text" name="username" placeholder="Enter your username" required />
+
+      <!-- Email -->
+      <input type="email" name="email" placeholder="Enter your email" required />
+
+      <!-- Password -->
+      <input type="password" name="password" placeholder="Enter your password" required />
+
+      <!-- Confirm Password -->
+      <input type="password" name="confirm_password" placeholder="Confirm your password" required />
+
+      <!-- Submit -->
+      <button type="submit" class="btn">Sign Up</button>
+
+      <!-- Links -->
+      <div class="links">
+        <a href="{{ url_for('login') }}">Already have an account? Log in</a>
+      </div>
+    </form>
+
+    <!-- Social Signup Buttons -->
+    <div class="social-buttons">
+      <div id="google-btn" class="social-btn">
+        <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google"/>
+        Google
+      </div>
+      <div id="apple-btn" class="social-btn">
+        <img src="https://img.icons8.com/ios-filled/50/000000/mac-os.png" alt="Apple"/>
+        Apple
+      </div>
+      <div id="facebook-btn" class="social-btn">
+        <img src="https://img.icons8.com/ios-filled/50/3b5998/facebook-new.png" alt="Facebook"/>
+        Facebook
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/css/script/signup.js"></script>
+
+
+</body>
+</html>

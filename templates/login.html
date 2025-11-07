@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Expense Sharing App</title>
+
+  <!-- Correct Flask static path for CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='CSS/login.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>SPLITWISE👋</h2>
+    <p class="subtitle">Login to continue managing your expenses</p>
+
+    <form method="POST">
+      <!-- Added IDs for JavaScript -->
+      <input type="text" id="username" name="username" placeholder="Enter your username" required />
+      <input type="password" id="password" name="password" placeholder="Enter your password" required />
+      <button type="submit" class="btn">Log In</button>
+
+      <div class="links">
+        <a href="/forgot-password">Forgot Password?</a>.
+        <span> | </span>
+        <a href="/signup">Create Account</a>
+      </div>
+    </form>
+
+    <div class="social-buttons">
+      <div id="google-btn" class="social-btn">
+        <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google"/>
+        Google
+      </div>
+      <div id="apple-btn" class="social-btn">
+        <img src="https://img.icons8.com/ios-filled/50/000000/mac-os.png" alt="Apple"/>
+        Apple
+      </div>
+      <div id="facebook-btn" class="social-btn">
+        <img src="https://img.icons8.com/ios-filled/50/3b5998/facebook-new.png" alt="Facebook"/>
+        Facebook
+      </div>
+    </div>
+
+    <div class="signup-link">
+      Don’t have an account? <a href="/signup">Sign Up</a>
+    </div>
+  </div>
+
+  <!-- ✅ Correct Flask path for JS -->
+  <script src="/static/css/script/login.js"></script>
+
+</body>
+</html>
